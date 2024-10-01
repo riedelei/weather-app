@@ -1,0 +1,29 @@
+
+<div class="list-group" *ngFor="let c of cities | async">
+  <div class="list-group-item" aria-current="true">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{c.name}}</h5>
+      <small>{{c.country}}</small>
+    </div>
+    <p class="mb-1">{{c.state}}</p>
+    <table class="table">
+      <tbody>
+      <tr>
+        <td>{{c.id}}</td>
+      </tr>
+      <tr>
+        <td>Latitude: {{c.lat}}</td>
+      </tr>
+      <tr>
+        <td>Lontitude: {{c.lon}}</td>
+      </tr>
+    </table>
+    <div>
+      <button class="btn btn-primary" >Add</button>
+    </div>
+  </div>
+  <br>
+</div>
+<div>
+<button class="btn btn-primary"  >Zurück</button>
+</div>

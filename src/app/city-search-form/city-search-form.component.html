@@ -1,0 +1,8 @@
+<form class="row g-2" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <div class="col-auto">
+    <input class="form-control" formControlName="searchCity" placeholder="City">
+  </div>
+  <div class="col-auto">
+    <button class="btn btn-primary" type="submit" >Search</button>
+  </div>
+</form>
