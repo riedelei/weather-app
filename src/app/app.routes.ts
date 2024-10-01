@@ -1,15 +1,19 @@
 import { Routes } from '@angular/router';
-import {CitySearchFormComponent} from "./city-search-form/city-search-form.component";
 import {CitySearchListComponent} from "./city-search-list/city-search-list.component";
+import {HomeComponent} from "./home/home.component";
+import {CitySearchFormComponent} from "./city-search-form/city-search-form.component";
 
 export const routes: Routes = [
   {
-    path:"", component: CitySearchFormComponent
+    path:"", component: HomeComponent
   },
   {
-    path:"home", component:CitySearchFormComponent
+    path:"home", component:HomeComponent
   },
   {
     path:"cities/:cityToSearch", component:CitySearchListComponent
+  },
+  {
+    path:"citysearch", component:CitySearchFormComponent
   }
 ];

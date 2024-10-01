@@ -17,12 +17,9 @@ export class CityService {
 
   }
 
-  getCity(city: string): City {
-    this.httpClient.get<City>(this.url+'/onecity', {
-       params: {name: city}}).subscribe(c => {
-      this.serverCity = c;
-    })
-    return this.serverCity;
+  getCity(city: string): Observable<City> {
+    return this.httpClient.get<City>(this.url+'/onecity', {
+       params: {name: city}});
   }
 
   getCities(ci: string): Observable<City[]> {

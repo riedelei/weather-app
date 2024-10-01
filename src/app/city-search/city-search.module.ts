@@ -5,6 +5,8 @@ import {CitySearchListComponent} from "../city-search-list/city-search-list.comp
 import {ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {CityService} from "./city-service";
+import {AppComponent} from "../app.component";
+import {HomeComponent} from "../home/home.component";
 
 
 
@@ -14,7 +16,9 @@ import {CityService} from "./city-service";
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    AppComponent,
+    HomeComponent
   ]
 })
 export class CitySearchModule { }
