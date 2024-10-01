@@ -22,6 +22,11 @@ export class CityService {
        params: {name: city}});
   }
 
+  getCitiesFromDbOrNew(city:string): Observable<City[]> {
+    return this.httpClient.get<City[]>(this.url+'/citydbornew', {
+      params : {name:city }});
+  }
+
   getCities(ci: string): Observable<City[]> {
 
     return this.httpClient.get<City[]>(this.url+'/city', {
