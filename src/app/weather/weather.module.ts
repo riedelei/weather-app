@@ -4,6 +4,7 @@ import {WeatherFormComponent} from "../weather-form/weather-form.component";
 import {WeatherListComponent} from "../weather-list/weather-list.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterLink} from "@angular/router";
+import {HomeComponent} from "../home/home.component";
 
 
 
@@ -16,7 +17,8 @@ import {RouterLink} from "@angular/router";
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterLink
+    RouterLink,
+    HomeComponent
   ]
 })
 export class WeatherModule { }

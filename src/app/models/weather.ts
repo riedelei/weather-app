@@ -1,6 +1,7 @@
 
 export interface Weather {
   id: bigint,
+  city: string,
   main: string, // "Rain"
   description: string, // moderate Rain
   temp: number,

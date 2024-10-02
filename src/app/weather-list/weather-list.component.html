@@ -1,1 +1,37 @@
-<p>weather-list works!</p>
+<!--<app-home></app-home>-->
+Wetter für {{cityWeather}}
+<div class="list-group" *ngFor="let w of weatherData | async">
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{w.city}}</h5>
+      <p class="card-text">
+        {{w.description}}
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">{{w.temp}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gefühlt {{w.feels_like}}. {{w.clouds}}.</td>
+          </tr>
+          <tr>
+            <td>Feuchtigkeit: {{w.humidity}}</td>
+          </tr>
+          <tr>
+            <td>Wind: {{w.windSpeed}}</td>
+          </tr>
+          <tr>
+            <td>Regen: {{w.rain}}</td>
+          </tr>
+          <tr>
+            <td>Sonnenaufgang: {{w.sunrise}}. Sonnenuntergang {{w.sunset}}</td>
+          </tr>
+        </tbody>
+       </table>
+    </div>
+  </div>
+</div>

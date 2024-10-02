@@ -11,18 +11,17 @@ export class WeatherFormComponent {
 
   weatherForm: FormGroup = new FormGroup({});
 
-  cityWeather: string = "";
+  cityWeather: string= '';
 
   constructor(private formBuilder: FormBuilder,
               private router : Router) {
     this.weatherForm = this.formBuilder.group({
-      searchCity: new FormControl()
-    })
-
+      weatherCity: new FormControl()
+    });
   }
   onSubmit() {
-    this.cityWeather =  this.weatherForm.value.searchCity;
-    this.router.navigate(['/weatherlist', this.cityWeather]);
+    this.cityWeather =  this.weatherForm.value.weatherCity;
+    this.router.navigate(['/weatherlist',this.cityWeather]);
   }
 
 }

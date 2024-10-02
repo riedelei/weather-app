@@ -16,7 +16,7 @@ export class WeatherListComponent implements OnInit{
 
   cityWeather: string | null;
   cities: Observable<City[]> = of();
-  weatherData: Observable<Weather> = of();
+  weatherData: Observable<Weather[]> = of();
   constructor(private cityservice: CityService,
               private weatherService: WeatherService,
               private route: ActivatedRoute) {
