@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {City} from "../models/city";
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -28,9 +28,12 @@ export class CityService {
   }
 
   getCities(ci: string): Observable<City[]> {
-
-    return this.httpClient.get<City[]>(this.url+'/city', {
-      params : {name:ci }});
+    alert("Bin in Service"+ci);
+    alert(this.url);
+    const params = new HttpParams()
+      .set('name', ci);
+    let sity:City[] = [];
+    return this.httpClient.get<City[]>(this.url+'/city', {params});
 
   }
   getServerCityArray(): City[] {

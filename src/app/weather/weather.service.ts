@@ -13,13 +13,13 @@ export class WeatherService {
   constructor(private httpClient: HttpClient) { }
 
   getWeatherLonLat(lon: number, lat: number): Observable<Weather> {
-      return this.httpClient.get<Weather>(this.url + '/', {
+      return this.httpClient.get<Weather>(this.url + 'weather', {
         params : {lat: lat, lon: lon}
       });
   }
 
-  getWeatherFromCity(cityname: string): Observable<Weather[]> {
-    return this.httpClient.get<Weather[]>(this.url + '/', {
+  getWeatherFromCity(cityname: string): Observable<Weather> {
+    return this.httpClient.get<Weather>(this.url + 'weather', {
       params : {name: cityname}});
   }
 }

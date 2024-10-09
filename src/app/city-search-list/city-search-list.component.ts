@@ -29,6 +29,6 @@ export class CitySearchListComponent implements OnInit{
     if(this.cityToSearch === null) {
       this.cityToSearch = '';
     }
-    this.cities = this.cityService.getCities(this.cityToSearch);
+    //this.cities = this.cityService.getCities(this.cityToSearch);
   }
 }

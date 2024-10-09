@@ -1,37 +1,60 @@
 <!--<app-home></app-home>-->
 Wetter für {{cityWeather}}
-<div class="list-group" *ngFor="let w of weatherData | async">
-  <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{w.city}}</h5>
-      <p class="card-text">
-        {{w.description}}
-      </p>
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">{{w.temp}}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Gefühlt {{w.feels_like}}. {{w.clouds}}.</td>
-          </tr>
-          <tr>
-            <td>Feuchtigkeit: {{w.humidity}}</td>
-          </tr>
-          <tr>
-            <td>Wind: {{w.windSpeed}}</td>
-          </tr>
-          <tr>
-            <td>Regen: {{w.rain}}</td>
-          </tr>
-          <tr>
-            <td>Sonnenaufgang: {{w.sunrise}}. Sonnenuntergang {{w.sunset}}</td>
-          </tr>
-        </tbody>
-       </table>
+<ng-container *ngIf="cityData | async as cityData">
+  <div *ngIf="cityData.length === 1">
+    <div class="card" style="width: 18rem;">
+      <div *ngFor="let w of weatherData.weatherCondition">
+        <img src=`{{w.icon}}` class="card-img-top" alt={{w.description}} ><br>
+        {{w.main}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{weatherData.city}}</h5>
+        <p class="card-text" >
+          {{weatherData.rain}}
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">{{weatherData.temp}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Gefühlt {{weatherData.feels_like}}. {{weatherData.clouds}}.</td>
+            </tr>
+            <tr>
+              <td>Feuchtigkeit: {{weatherData.humidity}}</td>
+            </tr>
+            <tr>
+              <td>Wind: {{weatherData.windSpeed}}</td>
+            </tr>
+            <tr>
+              <td>Regen: {{weatherData.rain}}</td>
+            </tr>
+            <tr>
+              <td>Sonnenaufgang: {{weatherData.sunrise}}. Sonnenuntergang {{weatherData.sunset}}</td>
+            </tr>
+          </tbody>
+         </table>
+      </div>
     </div>
   </div>
-</div>
+  <div *ngIf="cityData.length > 1">
+    Bitte wählen Sie eine Stadt aus:
+    <div *ngFor="let cd of cityData">
+      <ul class="list-group">
+        <li class="list-group-item active" aria-current="true">{{cd.name}}</li>
+        <li class="list-group-item">{{cd.state}}</li>
+        <li class="list-group-item">{{cd.country}}</li>
+        <li class="list-group-item">{{cd.lon}} {{cd.lat}}</li>
+        <button class="btn btn-primary"  >Auswählen</button>
+      </ul>
+    </div>
+  </div>
+  <div *ngIf="cityData .length ===0 ">
+    Nix da
+  </div>
+</ng-container>
+<!--</div>
+(click)="loadWeather(cd.lon, cd.lat, cd.name)"
+-->
