@@ -28,11 +28,8 @@ export class CityService {
   }
 
   getCities(ci: string): Observable<City[]> {
-    alert("Bin in Service"+ci);
-    alert(this.url);
     const params = new HttpParams()
       .set('name', ci);
-    let sity:City[] = [];
     return this.httpClient.get<City[]>(this.url+'/city', {params});
 
   }
