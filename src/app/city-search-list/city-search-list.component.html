@@ -19,8 +19,7 @@
       </tr>
     </table>
     <div>
-      <button class="btn btn-primary m-1" [routerLink]="['/home', c]">Als Favorit hinzufügen</button>
-      <button class="btn btn-primary m-1" [routerLink]="['/home', c]">Wetter anzeigen</button>
+      <button class="btn btn-primary m-1" [routerLink]="['/weatherlist', c.name, c.lat, c.lon]">Wetter anzeigen</button>
     </div>
   </div>
   <br>

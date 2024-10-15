@@ -1,76 +1,36 @@
 <!--<app-home></app-home>-->
-Wetter für {{cityWeather}}
-<ng-container *ngIf="cityData | async as cityData">
-<!--<ng-container *ngIf="cityData">-->
-<!--  <div *ngIf="cityData.length === 1">-->
-<!--    <div class="card" style="width: 18rem;">-->
-<!--      <ng-container *ngIf="weatherData | async as weatherData">-->
-<!--        <div *ngFor="let w of weatherData.weatherCondition">-->
-<!--          <img src=`{{w.icon}}` class="card-img-top" alt={{w.description}} ><br>-->
-<!--          {{w.main}}-->
-<!--        </div>-->
-<!--        <div class="card-body">-->
-<!--          <h5 class="card-title">{{weatherData.city}}</h5>-->
-<!--          <p class="card-text" >-->
-<!--            {{weatherData.rain}}-->
-<!--          </p>-->
-<!--          <table>-->
-<!--            <thead>-->
-<!--              <tr>-->
-<!--                <th scope="col">{{weatherData.temp}}</th>-->
-<!--              </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--              <tr>-->
-<!--                <td>Gefühlt {{weatherData.feels_like}}. {{weatherData.clouds}}.</td>-->
-<!--              </tr>-->
-<!--              <tr>-->
-<!--                <td>Feuchtigkeit: {{weatherData.humidity}}</td>-->
-<!--              </tr>-->
-<!--              <tr>-->
-<!--                <td>Wind: {{weatherData.windSpeed}}</td>-->
-<!--              </tr>-->
-<!--              <tr>-->
-<!--                <td>Regen: {{weatherData.rain}}</td>-->
-<!--              </tr>-->
-<!--              <tr>-->
-<!--                <td>Sonnenaufgang: {{weatherData.sunrise}}. Sonnenuntergang {{weatherData.sunset}}</td>-->
-<!--              </tr>-->
-<!--            </tbody>-->
-<!--           </table>-->
-<!--        </div>-->
-<!--      </ng-container>-->
-<!--      </div>-->
-<!--  </div>-->
-<!--  <div *ngIf="cityData.length > 1">-->
 
-    Bitte wählen Sie eine Stadt aus:
-    {{cityData.length}}
-    <div *ngFor="let cd of cityData ">
-      <ul class="list-group">
-        <li class="list-group-item active" aria-current="true">{{cd.name}}</li>
-        <li class="list-group-item">{{cd.state}}</li>
-        <li class="list-group-item">{{cd.country}}</li>
-        <li class="list-group-item">{{cd.lon}} {{cd.lat}}</li>
-        <button class="btn btn-primary"  (click)="loadWeather(cd.lon, cd.lat)">Auswählen</button>
-      </ul>
-    </div>
-<!--  </div>-->
-<!--  <div *ngIf="cityData .length ===0 ">-->
-<!--    Nix da-->
-<!--  </div>-->
-</ng-container>
-<ng-container *ngIf="weatherData | async as weatherData">
-  Wetter für {{weatherData.city}}
-    <ul class="list-group">
-<!--      <li class="list-group-item active" aria-current="true">{{weatherData.temp}}</li>-->
-<!--      <li class="list-group-item">{{weatherData.}}</li>-->
-<!--      <li class="list-group-item">{{wd.country}}</li>-->
-<!--      <li class="list-group-item">{{wd.lon}} {{wd.lat}}</li>-->
-<!--      -->
-    </ul>
+<!--  <ng-container *ngIf="weatherData | async as weatherData">-->
+  <div *ngIf="weatherData | async as weatherData">
 
-</ng-container>
+      Wetter für {{weatherData.city}}
+        <ul class="list-group">
+          <li class="list-group-item active" aria-current="true">Temperatur: {{weatherData.temp}}</li>
+          <li class="list-group-item">Wetterbedingungen:
+            <div *ngFor="let item of weatherData.weatherCondition">
+              {{item.main}} <br>
+              {{item.description}}<br>
+              <img src={{item.icon}}/>
+            </div>
+          </li>
+          <li class="list-group-item">gefühlt wie: {{weatherData.feels_like}}</li>
+          <li class="list-group-item">Maximal-Temperatur: {{weatherData.temp_max}}</li>
+          <li class="list-group-item">Minimal-Temperatur: {{weatherData.temp_min}}</li>
+          <li class="list-group-item">Wind-Speed: {{weatherData.windSpeed}}</li>
+          <li class="list-group-item">Sonnenaufgang: {{weatherData.sunrise}}</li>
+          <li class="list-group-item">Sonnenuntergang: {{weatherData.sunset}}</li>
+          <li class="list-group-item">Regen: {{weatherData.rain}}</li>
+          <li class="list-group-item">Feuchtigkeit: {{weatherData.humidity}}</li>
+          <li class="list-group-item">Wolken: {{weatherData.clouds}}</li>
+          <li class="list-group-item">Druck: {{weatherData.pressure}}</li>
+          <li class="list-group-item">Seelevel: {{weatherData.sea_level}}</li>
+          <li class="list-group-item">Bodenlevel: {{weatherData.grnd_level}}</li>
+          <li class="list-group-item">Sichtbarkeit: {{weatherData.visibility}}</li>
+        </ul>
+  </div>
+<!--  </ng-container>-->
+<!--  </ng-container>-->
+
 <!--</div>
 (click)="loadWeather(cd.lon, cd.lat, cd.name)"
 -->

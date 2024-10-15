@@ -18,6 +18,6 @@ export const routes: Routes = [
     path:"citysearch", component:CitySearchFormComponent
   },
   {
-    path:"weatherlist/:cityWeather", component:WeatherListComponent
+    path:"weatherlist/:cityWeather/:lat/:lon", component:WeatherListComponent
   }
 ];
