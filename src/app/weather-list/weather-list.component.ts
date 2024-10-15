@@ -14,8 +14,6 @@ import {Weather} from "../models/weather";
 })
 export class WeatherListComponent implements OnInit{
 
-  cityWeather: string | null;
-  cityData: Observable<City[]>  = of();
   weatherData: Observable<Weather> = of();
   lat: number = 0.0;
   lon: number = 0.0;
@@ -24,7 +22,7 @@ export class WeatherListComponent implements OnInit{
               private weatherService: WeatherService,
               private router : Router,
               private route: ActivatedRoute) {
-    this.cityWeather = '';
+
   }
   ngOnInit(): void {
 

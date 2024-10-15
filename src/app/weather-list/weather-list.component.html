@@ -1,36 +1,28 @@
 <!--<app-home></app-home>-->
+<div *ngIf="weatherData | async as weatherData">
 
-<!--  <ng-container *ngIf="weatherData | async as weatherData">-->
-  <div *ngIf="weatherData | async as weatherData">
-
-      Wetter für {{weatherData.city}}
-        <ul class="list-group">
-          <li class="list-group-item active" aria-current="true">Temperatur: {{weatherData.temp}}</li>
-          <li class="list-group-item">Wetterbedingungen:
-            <div *ngFor="let item of weatherData.weatherCondition">
-              {{item.main}} <br>
-              {{item.description}}<br>
-              <img src={{item.icon}}/>
-            </div>
-          </li>
-          <li class="list-group-item">gefühlt wie: {{weatherData.feels_like}}</li>
-          <li class="list-group-item">Maximal-Temperatur: {{weatherData.temp_max}}</li>
-          <li class="list-group-item">Minimal-Temperatur: {{weatherData.temp_min}}</li>
-          <li class="list-group-item">Wind-Speed: {{weatherData.windSpeed}}</li>
-          <li class="list-group-item">Sonnenaufgang: {{weatherData.sunrise}}</li>
-          <li class="list-group-item">Sonnenuntergang: {{weatherData.sunset}}</li>
-          <li class="list-group-item">Regen: {{weatherData.rain}}</li>
-          <li class="list-group-item">Feuchtigkeit: {{weatherData.humidity}}</li>
-          <li class="list-group-item">Wolken: {{weatherData.clouds}}</li>
-          <li class="list-group-item">Druck: {{weatherData.pressure}}</li>
-          <li class="list-group-item">Seelevel: {{weatherData.sea_level}}</li>
-          <li class="list-group-item">Bodenlevel: {{weatherData.grnd_level}}</li>
-          <li class="list-group-item">Sichtbarkeit: {{weatherData.visibility}}</li>
-        </ul>
-  </div>
-<!--  </ng-container>-->
-<!--  </ng-container>-->
-
-<!--</div>
-(click)="loadWeather(cd.lon, cd.lat, cd.name)"
--->
+    Wetter für {{weatherData.city}}
+      <ul class="list-group">
+        <li class="list-group-item active" aria-current="true">Temperatur: {{weatherData.temp}}</li>
+        <li class="list-group-item">Wetterbedingungen:
+          <div *ngFor="let item of weatherData.weatherCondition">
+            {{item.main}} <br>
+            {{item.description}}<br>
+            <img src={{item.icon}}/>
+          </div>
+        </li>
+        <li class="list-group-item">gefühlt wie: {{weatherData.feels_like}}</li>
+        <li class="list-group-item">Maximal-Temperatur: {{weatherData.temp_max}}</li>
+        <li class="list-group-item">Minimal-Temperatur: {{weatherData.temp_min}}</li>
+        <li class="list-group-item">Wind-Speed: {{weatherData.windSpeed}}</li>
+        <li class="list-group-item">Sonnenaufgang: {{weatherData.sunrise}}</li>
+        <li class="list-group-item">Sonnenuntergang: {{weatherData.sunset}}</li>
+        <li class="list-group-item">Regen: {{weatherData.rain}}</li>
+        <li class="list-group-item">Feuchtigkeit: {{weatherData.humidity}}</li>
+        <li class="list-group-item">Wolken: {{weatherData.clouds}}</li>
+        <li class="list-group-item">Druck: {{weatherData.pressure}}</li>
+        <li class="list-group-item">Seelevel: {{weatherData.sea_level}}</li>
+        <li class="list-group-item">Bodenlevel: {{weatherData.grnd_level}}</li>
+        <li class="list-group-item">Sichtbarkeit: {{weatherData.visibility}}</li>
+      </ul>
+</div>

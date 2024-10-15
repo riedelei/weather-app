@@ -21,7 +21,6 @@ export class WeatherFormComponent {
   }
   onSubmit() {
     this.cityWeather =  this.weatherForm.value.weatherCity;
-    //this.router.navigate(['/weatherlist',this.cityWeather]);
     this.router.navigate(['/cities',this.cityWeather]);
   }
 
