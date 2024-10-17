@@ -1,5 +1,5 @@
 <!--<app-home></app-home>-->
-<div *ngIf="weatherData | async as weatherData">
+<!--<div *ngIf="weatherData | async as weatherData">-->
 
     Wetter für {{weatherData.city}}
       <ul class="list-group">
@@ -25,7 +25,7 @@
         <li class="list-group-item">Bodenlevel: {{weatherData.grnd_level}}</li>
         <li class="list-group-item">Sichtbarkeit: {{weatherData.visibility}}</li>
       </ul>
-</div>
+<!--</div>-->
 <div>
   <button class="btn btn-primary mt-1" [routerLink]="['/home']">Zurück</button>
 </div>

@@ -5,6 +5,7 @@ import {City} from "../models/city";
 import {count, map, Observable, of, take, tap, toArray} from "rxjs";
 import {WeatherService} from "../weather/weather.service";
 import {Weather} from "../models/weather";
+import {WeatherClass} from "../models/weather";
 
 @Component({
   selector: 'app-weather-list',
@@ -14,7 +15,8 @@ import {Weather} from "../models/weather";
 })
 export class WeatherListComponent implements OnInit{
 
-  weatherData: Observable<Weather> = of();
+  // weatherData: Observable<Weather> = of();
+  weatherData: Weather = new WeatherClass( 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, BigInt(0), BigInt(0), 0, 0, 0, BigInt(0), 0);
   lat: number = 0.0;
   lon: number = 0.0;
 
@@ -38,6 +40,8 @@ export class WeatherListComponent implements OnInit{
 
 
     })
-    this.weatherData = this.weatherService.getWeatherLonLat(this.lon, this.lat);
+    //this.weatherData = this.weatherService.getWeatherLonLat(this.lon, this.lat);
+    this.weatherService.getWeatherLonLat(this.lon, this.lat).subscribe(s => {this.weatherData = s;})
   }
 }
+
