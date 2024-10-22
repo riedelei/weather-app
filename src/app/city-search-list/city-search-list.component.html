@@ -18,12 +18,23 @@
         <td>Lontitude: {{c.lon}}</td>
       </tr>
     </table>
+
     <div>
       <button class="btn btn-primary m-1" [routerLink]="['/weatherlist', c.name, c.lat, c.lon]">Wetter anzeigen</button>
+
+      <button class="btn btn-primary m-1" (click)="saveFavoriteCity(c.name, c.lat, c.lon, c.id)">Als Favorit speichern</button>
+
+      <ng-container *ngIf="checkToggle()">
+        <ng-container *ngIf="c.id === cityId">
+        <br>
+        {{c.name}} wurde erfolgreich als Favorit hinzugefügt.
+        </ng-container>
+      </ng-container>
     </div>
-  </div>
   <br>
 </div>
 <div>
 <button class="btn btn-primary" [routerLink]="['/home']">Zurück</button>
 </div>
+
+

@@ -18,8 +18,7 @@ export class WeatherService {
       });
   }
 
-  getWeatherFromCity(cityname: string): Observable<Weather> {
-    return this.httpClient.get<Weather>(this.url + 'weather', {
-      params : {name: cityname}});
+  getWeatherFromFavoriteCity(): Observable<Weather> {
+    return this.httpClient.get<Weather>(this.url + 'weatherfavoritecity');
   }
 }

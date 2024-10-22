@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 
 @Component({
@@ -24,5 +24,9 @@ export class CitySearchFormComponent {
   onSubmit() {
     this.cityToSearch =  this.searchForm.value.searchCity;
     this.router.navigate(['/cities', this.cityToSearch]);
+  }
+
+  goBack(): void {
+    this.router.navigate(['/home']);
   }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {City} from "../models/city";
 import {Observable, of} from "rxjs";
+import {FavoriteCity} from "../models/favoriteCity";
 
 @Injectable({
   providedIn: 'root'
@@ -33,14 +34,20 @@ export class CityService {
     return this.httpClient.get<City[]>(this.url+'/city', {params});
 
   }
-  getServerCityArray(): City[] {
-    alert("!!!"+this.serverCityArray[0].name);
-    return this.serverCityArray;
+
+  setFavoriteCity(name: string, lat: number, lon: number) {
+    this.httpClient.post<any>(this.url+'/favoritecity', {name: name, lat: lat, lon: lon},{
+      params: {name: name, lat: lat, lon: lon}
+    }).subscribe(log => { console.log("post send", log)});
+  }
+
+  getFavoriteCity(): Observable<FavoriteCity> {
+    return this.httpClient.get<FavoriteCity>(this.url+'/favoritecity');
   }
 
   //hier möchte ihc die Stadt, die Standardmäßig angezeigt werden soll, ändern
   updatefavouriteCity(city: City): void {
-    this.httpClient.put('/city', city, { reportProgress:true});
+    this.httpClient.put(this.url+'/city', city, { reportProgress:true});
   }
 
   // hier baue ich eine Liste von Favoriten-Städten auf
